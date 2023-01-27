@@ -2,10 +2,27 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart'as http;
+import 'package:http/http.dart';
 import 'package:task_manager2/all_task.dart';
 
 class AddTaskPage extends StatelessWidget {
   //const AddTaskPage({Key? key}) : super(key: key);
+
+
+  Future<Response> postData()async{
+    Response response=await http.post(Uri.parse("http://192.168.0.204:8080/create?task=fldkfjlkj&task_detail=jjdgkgk")
+      //   body: {
+      // "task":"kfhksdkh",
+      //     "task_detail":"hfjhjfhjdhjdfhh"
+      //   },
+        // headers: {
+        //   "Content-Type":"application/json; charset=UTF-8"
+        // }
+    );
+
+    return response;
+  }
 
 
   TextEditingController nameController=TextEditingController();
@@ -69,6 +86,12 @@ class AddTaskPage extends StatelessWidget {
                 ),
               ),
             ),
+
+
+            ElevatedButton(onPressed: (){
+              postData();
+
+            }, child: Text("Add Task"))
 
 
 
