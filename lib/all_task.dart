@@ -4,8 +4,11 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:task_manager2/add_task_page.dart';
 
 class AllTask extends StatefulWidget {
+
+
   const AllTask({Key? key}) : super(key: key);
 
 
@@ -80,6 +83,34 @@ class _AllTaskState extends State<AllTask> {
 
           );
         }),
+
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButton: Container(
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 21),
+          child: FloatingActionButton.extended(
+
+            onPressed: (){
+
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          AddTaskPage()));
+
+            },
+            label: Text("Add Task"),
+            hoverElevation: 100,
+            icon: Icon(Icons.edit),
+            splashColor: Colors.purple,
+
+            backgroundColor: Colors.pink.shade500,
+          ),
+        ),
+
+
+
+
+
       ),
     ):Scaffold(
         body: Center(
