@@ -112,6 +112,21 @@ func createTask(w http.ResponseWriter, r *http.Request) {
 	task.Date = current_time
 	tasks = append(tasks, task)
 	json.NewEncoder(w).Encode(tasks)
+	
+	
+	if err != nil {
+		return
+	}
+		
+	
+
+	value1:=r.Form.Get("task_name")
+	value2:=r.Form.Get("task_detail")
+
+	fmt.Println("task Added")
+	fmt.Println(value1)
+	fmt.Println(value2)
+
 
 }
 func deleteTask(w http.ResponseWriter, r *http.Request) {
