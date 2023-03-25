@@ -100,6 +100,8 @@ func gettasks(w http.ResponseWriter, r *http.Request) {
 
 }
 func createTask(w http.ResponseWriter, r *http.Request) {
+	
+	err:=r.ParseForm()
 
 	fmt.Fprintf(w, "create is hit")
 	w.Header().Set("Content-Type", "application/json")
